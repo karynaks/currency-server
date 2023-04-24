@@ -72,3 +72,6 @@ pytest currency_server/tests/test_nbp_api.py
 ```commandline
 python manage.py test
 ```
+
+## License
+This project is licensed under the terms of the MIT license.
