@@ -8,21 +8,12 @@ The server is written in Python 3 and Django.
 
 1. Clone the repository to your local machine.
 ```commandline
-git clone https://github.com/username/currency-server.git
+git clone https://github.com/karynaks/currency-server.git
 ```
-2. Change into the currency-server directory.
-```commandline
-cd currency-server
-```
-3. Install the required packages.
+2. Install the required packages.
 ```commandline
 pip install -r requirements.txt
 ```
-4. Migrate the database.
-```commandline
-python manage.py migrate
-```
-
 
 ## Usage
 To start the server, run the following command:

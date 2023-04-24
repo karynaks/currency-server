@@ -11,5 +11,5 @@ def max_and_min_of_exchange_rate(resp_json: Dict) -> (float, float):
 
 
 def max_diff_buy_ask_rate(resp_json: Dict) -> float:
-    diff_buy_ask_rates = map(lambda x: round(abs(x['ask'] - x['bid']), 10), resp_json['rates'])
+    diff_buy_ask_rates = map(lambda x: round(x['ask'] - x['bid'], 10), resp_json['rates'])
     return max(diff_buy_ask_rates)

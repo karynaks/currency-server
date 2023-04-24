@@ -45,4 +45,3 @@ def buy_and_sell_rates(request: HttpRequest, currency: str, number_quotations: i
     abs_max_difference = max_diff_buy_ask_rate(response.json())
     response_data = {'abs_max_difference': abs_max_difference}
     return JsonResponse(response_data)
-

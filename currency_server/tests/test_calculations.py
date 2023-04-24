@@ -1,8 +1,6 @@
 import pytest
 from currency_server.calculations import *
 
-# RUN: pytest currency_server/tests/test_calculations.py
-
 
 @pytest.mark.parametrize("response_json, expected_average", [
     ({'table': 'A', 'currency': 'some currency', 'code': 'code',
@@ -16,16 +14,6 @@ from currency_server.calculations import *
 ])
 def test_average_exchange_rate(response_json, expected_average):
     assert average_exchange_rate(response_json) == expected_average
-
-
-rates = {'table': 'C',
-         'currency': 'funt szterling',
-         'code': 'GBP',
-         'rates': [{'no': '076/C/NBP/2023', 'effectiveDate': '2023-04-19', 'bid': 5.1877, 'ask': 5.2925},
-                   {'no': '077/C/NBP/2023', 'effectiveDate': '2023-04-20', 'bid': 5.1883, 'ask': 5.2931},
-                   {'no': '078/C/NBP/2023', 'effectiveDate': '2023-04-21', 'bid': 5.1706, 'ask': 5.275},
-                   {'no': '079/C/NBP/2023', 'effectiveDate': '2023-04-24', 'bid': 5.154, 'ask': 5.2582}]
-         }
 
 
 @pytest.mark.parametrize("response_json, expected_average", [
@@ -79,14 +67,6 @@ def test_max_and_min_of_exchange_rate(response_json, expected_average):
                 {'no': '077/C/NBP/2023', 'effectiveDate': '2023-04-20', 'bid': 5.1000, 'ask': 5.6000},
                 {'no': '078/C/NBP/2023', 'effectiveDate': '2023-04-21', 'bid': 5.0000, 'ask': 6.0000},
                 {'no': '079/C/NBP/2023', 'effectiveDate': '2023-04-24', 'bid': 5.2000, 'ask': 5.6000}]
-      }, 1.0000),
-    ({'table': 'C',
-      'currency': 'funt szterling',
-      'code': 'GBP',
-      'rates': [{'no': '076/C/NBP/2023', 'effectiveDate': '2023-04-19', 'bid': 5.0000, 'ask': 4.7000},
-                {'no': '077/C/NBP/2023', 'effectiveDate': '2023-04-20', 'bid': 5.6000, 'ask': 5.1000},
-                {'no': '078/C/NBP/2023', 'effectiveDate': '2023-04-21', 'bid': 6.0000, 'ask': 5.0000},
-                {'no': '079/C/NBP/2023', 'effectiveDate': '2023-04-24', 'bid': 5.6000, 'ask': 5.2000}]
       }, 1.0000),
     ({'table': 'C',
       'currency': 'funt szterling',

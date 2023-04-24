@@ -5,9 +5,8 @@ from django.http import JsonResponse, HttpResponse
 from unittest.mock import patch
 from requests.models import Response
 import os
-os.environ['DJANGO_SETTINGS_MODULE'] = 'currency_server.settings'
 
-# RUN: python manage.py test
+os.environ['DJANGO_SETTINGS_MODULE'] = 'currency_server.settings'
 
 
 class TestOneDayRate(TestCase):
@@ -17,9 +16,9 @@ class TestOneDayRate(TestCase):
         currency = 'USD'
         expected_rate = 3.50
         mock_response_data = {'table': 'A',
-                         'currency': 'currency',
-                         'code': currency,
-                         'rates': [{'no': '077/A/NBP/2023', 'effectiveDate': date, 'mid': expected_rate}]}
+                              'currency': 'currency',
+                              'code': currency,
+                              'rates': [{'no': '077/A/NBP/2023', 'effectiveDate': date, 'mid': expected_rate}]}
         mock_response = Response()
         mock_response.status_code = 200
         mock_response._content = json.dumps(mock_response_data).encode('utf-8')
@@ -45,14 +44,14 @@ class TestMaximumAndMinimumRates(TestCase):
         currency = 'USD'
         number_quotations = 4
         mock_response_data = {
-         'table': 'A',
-         'currency': 'funt szterling',
-         'code': 'GBP',
-         'rates': [{'no': '057/A/NBP/2023', 'effectiveDate': '2023-03-22', 'mid': 5.3385},
-                   {'no': '058/A/NBP/2023', 'effectiveDate': '2023-03-23', 'mid': 5.2966},
-                   {'no': '059/A/NBP/2023', 'effectiveDate': '2023-03-24', 'mid': 5.3417},
-                   {'no': '060/A/NBP/2023', 'effectiveDate': '2023-03-27', 'mid': 5.3364}
-                   ]
+            'table': 'A',
+            'currency': 'funt szterling',
+            'code': 'GBP',
+            'rates': [{'no': '057/A/NBP/2023', 'effectiveDate': '2023-03-22', 'mid': 5.3385},
+                      {'no': '058/A/NBP/2023', 'effectiveDate': '2023-03-23', 'mid': 5.2966},
+                      {'no': '059/A/NBP/2023', 'effectiveDate': '2023-03-24', 'mid': 5.3417},
+                      {'no': '060/A/NBP/2023', 'effectiveDate': '2023-03-27', 'mid': 5.3364}
+                      ]
         }
 
         mock_response = Response()

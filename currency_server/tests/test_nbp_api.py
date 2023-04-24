@@ -4,9 +4,6 @@ from unittest import mock
 from requests import Response
 
 
-# RUN: pytest currency_server/tests/test_nbp_api.py
-
-
 def test_average_exchange_rate_request_success():
     currency = 'USD'
     date = '2023-04-24'

@@ -16,5 +16,3 @@ def max_diff_buy_ask_rate_request(currency: str, number_quotations: int) -> Resp
     if number_quotations < 1 or number_quotations > 255:
         raise ValueError('Invalid number of quotations')
     return req.get(f'https://api.nbp.pl/api/exchangerates/rates/C/{currency}/last/{number_quotations}/')
-
-
